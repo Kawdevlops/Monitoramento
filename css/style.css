@@ -1,0 +1,211 @@
+/* style.css */
+:root{
+  --bg: #0b1220;
+  --panel: rgba(255,255,255,.06);
+  --panel-border: rgba(255,255,255,.10);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.65);
+}
+
+body{
+  background: linear-gradient(180deg, #070b14 0%, #0b1220 40%, #0b1220 100%);
+  color: var(--text);
+}
+
+.topbar{
+  background: radial-gradient(1200px 400px at 10% 0%, #ba2339, transparent 50%),
+              radial-gradient(1200px 400px at 90% 0%, rgba(54, 162, 235,.18), transparent 55%),
+              #070b14;
+}
+
+.brand-dot{
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #BA2339;
+  box-shadow: 0 0 20px #BA2339;
+}
+
+.brand-title{
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+.brand-subtitle{
+  font-size: .85rem;
+  color: var(--muted);
+}
+ .logo{
+  height: 100px;
+ }
+.hero{
+  background: radial-gradient(900px 400px at 15% 10%, rgba(255,255,255,.06), transparent 60%),
+              radial-gradient(900px 400px at 85% 20%, rgba(255,255,255,.04), transparent 60%);
+}
+
+.panel{
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px #BA2339;
+}
+
+.panel-head{
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.panel-title{
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+.panel-sub{
+  font-size: .9rem;
+}
+
+.chart-img-wrap{
+  height: 320px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.18);
+  display: grid;
+  place-items: center;
+}
+
+.chart-img-wrap.gauge {
+  height: 380px; /* gauge costuma precisar mais */
+}
+
+.chart-img-wrap-lg{
+  height: 720px;
+}
+
+.chart-img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.chart-iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #fff; /* corrigido */
+}
+
+.badge-pill{
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.10);
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.mini-kpi{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.mini-kpi-label{
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.mini-kpi-value{
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-top: 4px;
+}
+
+.mini-kpi-foot{
+  font-size: .85rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.info-card{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.info-card-head{
+  padding: 12px 14px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.info-title{
+  font-weight: 800;
+}
+
+.info-sub{
+  font-size: .85rem;
+}
+
+.info-body{
+  padding: 12px 14px;
+  color: rgba(255,255,255,.85);
+}
+
+.pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: .8rem;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+
+.pill-ok{ background: rgba(25,135,84,.18); border-color: rgba(25,135,84,.35); }
+.pill-warn{ background: rgba(255,193,7,.16); border-color: rgba(255,193,7,.35); }
+.pill-danger{ background: rgba(220,53,69,.18); border-color: rgba(220,53,69,.35); }
+.pill-neutral{ background: rgba(13,110,253,.16); border-color: rgba(13,110,253,.30); }
+
+a.btn-outline-light{
+  border-color: rgba(255,255,255,.25);
+  color: rgba(255,255,255,.9);
+}
+a.btn-outline-light:hover{
+  border-color: rgba(255,255,255,.35);
+}
+
+hr{
+  border-color: rgba(255,255,255,.12);
+}
+
+/* Impressão (fica “relatório”) */
+@media print{
+  body{ background: #fff !important; color: #111 !important; }
+  .topbar, .hero{ background: #fff !important; }
+  .panel, .info-card, .mini-kpi{
+    background: #fff !important;
+    color: #111 !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+  }
+  .text-secondary, .brand-subtitle, .mini-kpi-label, .mini-kpi-foot{
+    color: #444 !important;
+  }
+  a, .btn{ display: none !important; }
+}

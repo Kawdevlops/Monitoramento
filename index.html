@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Boletim de Monitoramento</title>
+
+   <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script src="js/main.js" defer></script>
+  <body>
+
+    <!-- TOP BAR -->
+    <header class="topbar py-3 border-bottom">
+      <div
+        class="container d-flex align-items-center justify-content-between gap-3"
+      >
+        <div class="d-flex align-items-center gap-2">
+          <img
+            src="img/Secretaria Municipal.png"
+            alt="logo da subprefeitura"
+            class="logo"
+          />
+          <div class="brand-dot"></div>
+          <div>
+            <div class="brand-title" style="font-size: xx-large">
+              Boletim de Monitoramento
+            </div>
+            <div class="brand-subtitle">
+              Atualização diária • <span id="dataAtual"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <div class="small text-secondary d-none d-md-block">
+            Última carga: <strong id="horaAtual"></strong>
+          </div>
+          <button class="btn btn-sm btn-outline-light" onclick="window.print()">
+            Imprimir / Salvar PDF
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero py-4">
+      <div class="container">
+        <div class="row g-3 align-items-stretch">
+          <div class="col-12 col-lg-7">
+            <div class="panel h-100">
+              <div
+                class="d-flex justify-content-between align-items-start gap-3"
+              >
+                <div>
+                  <h1 class="h4 m-0">Resumo do dia</h1>
+
+                  <p></p>
+                  <!-- Caso precise colocar alguns links-->
+                </div>
+                <div class="badge-pill">
+                  Status: <span class="badge text-bg-success ms-1">OK</span>
+                </div>
+              </div>
+
+              <hr class="my-3" />
+
+              <!-- CARDS  -->
+              <div class="row g-3">
+                <div class="col-12 col-md-4">
+                  <div class="mini-kpi">
+                    <div class="mini-kpi-label">Solicitações</div>
+                    <div class="mini-kpi-value" id="kpiSolicitacoes">—</div>
+                    <div class="mini-kpi-foot">
+                      vs ontem: <span id="kpiSolicitacoesVar">—</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="mini-kpi">
+                    <div class="mini-kpi-label">Concluídas</div>
+                    <div class="mini-kpi-value" id="kpiConcluidas">—</div>
+                    <div class="mini-kpi-foot">
+                      taxa: <span id="kpiTaxa">—</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="mini-kpi">
+                    <div class="mini-kpi-label">Pendências</div>
+                    <div class="mini-kpi-value" id="kpiPendencias">—</div>
+                    <div class="mini-kpi-foot">
+                      risco: <span class="pill pill-warn" id="kpiRisco">—</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARDS 2  -->
+          <div class="col-12 col-lg-5">
+            <div class="row g-3 h-100">
+              <div class="col-12">
+                <div class="info-card">
+                  <div class="info-card-head">
+                    <div>
+                      <div class="info-title">Alerta do dia</div>
+                      <div class="info-sub text-secondary">
+                        Ponto de atenção principal
+                      </div>
+                    </div>
+                    <span class="pill pill-danger">Atenção</span>
+                  </div>
+                  <div class="info-body">
+                    <p class="m-0" id="cardAlerta">—</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="info-card">
+                  <div class="info-card-head">
+                    <div>
+                      <div class="info-title">Destaque</div>
+                      <div class="info-sub text-secondary">
+                        O que melhorou hoje
+                      </div>
+                      <!-- CASO PRECISE ATUALIZAR INFORMAÇÕES-->
+                    </div>
+                    <span class="pill pill-ok">Ruim</span>
+                  </div>
+                  <div class="info-body">
+                    <p class="m-0" id="cardDestaque">—</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRÁFICOS (IMAGENS) -->
+    <section class="py-4">
+      <div class="container">
+        <div
+          class="d-flex align-items-center justify-content-between gap-2 mb-3"
+        >
+          <h2 class="h5 m-0">Gráficos do Monitoramento</h2>
+          <div class="small text-secondary">Atualizado Diariamente</div>
+        </div>
+
+        <div class="row g-3">
+          <!-- Gráfico 1 -->
+          <div class="col-12  ">
+            <div class="panel">
+              <div class="panel-head">
+                <div>
+                  <div class="panel-title">Progresso do Estoque</div>
+                  <div class="panel-sub text-secondary">Atualização Diaria</div>
+                </div>
+              </div>
+
+              <div class="chart-img-wrap gauge">
+                <iframe
+                  class="chart-iframe"
+                  src="img/velocimetro.html"
+                  loading="lazy"
+                >
+                </iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gráfico 2 -->
+          <div class="col-12 py-5">
+            <div class="panel">
+              <div class="panel-head">
+                <div>
+                  <div class="panel-title">Quantidade em estoque</div>
+                  <div class="panel-sub text-secondary">Atualização diaria</div>
+                </div>
+              </div>
+
+              
+              <div class="chart-img-wrap chart-img-wrap-lg">
+                 <iframe
+                  class="chart-iframe"
+                  src="img/graph_1_burn-down_20251226.html"
+                  loading="lazy"
+                >
+                </iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gráfico 3 -->
+          <div class="col-12 py-5">
+            <div class="panel" id="panel1">
+              <div class="panel-head">
+                <div>
+                  <div class="panel-title">Acompanhamento por Subprefeituras</div>
+                  <div class="panel-sub text-secondary">Atualização Diaria</div>
+                </div>
+              </div>
+
+              <div class="chart-img-wrap chart-img-wrap-lg">
+                 <iframe
+                  class="chart-iframe"
+                  src="img/graph_3_reducao_estoque_sub_20251226.html"
+                  loading="lazy"
+                >
+                </iframe>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="py-4 small text-secondary">
+          <div class="container px-0">
+            <div
+              class="d-flex flex-column flex-md-row justify-content-between gap-2"
+            >
+              <div>
+                <h6>Secretaria Municipal das Subprefeituras</h6>
+                <p>© <span id="ano"></span> • Seu time</p>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
