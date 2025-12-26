@@ -35,9 +35,11 @@ body{
   font-size: .85rem;
   color: var(--muted);
 }
+
  .logo{
-  height: 100px;
+  height: 150px;
  }
+
 .hero{
   background: radial-gradient(900px 400px at 15% 10%, rgba(255,255,255,.06), transparent 60%),
               radial-gradient(900px 400px at 85% 20%, rgba(255,255,255,.04), transparent 60%);
