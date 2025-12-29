@@ -35,8 +35,8 @@ const concluidasHoje = Math.max(0, pendentesOntem - pendentesHoje);
 // Situação do dia (sem mostrar número)
 const situacaoDia =
   pendentesHoje > pendentesOntem ? "subiu" :
-  pendentesHoje === pendentesOntem ? "estagnou" :
-  "caiu";
+    pendentesHoje === pendentesOntem ? "estagnou" :
+      "caiu";
 
 
 // ===== ATUALIZA CARDS =====
@@ -66,8 +66,8 @@ document.getElementById("kpiPendencias").textContent =
 // Risco baseado no volume que ainda existe (pendentes hoje)
 const risco =
   pendentesHoje >= 20000 ? "ALTO" :
-  pendentesHoje >= 10000 ? "MÉDIO" :
-  "BAIXO";
+    pendentesHoje >= 10000 ? "MÉDIO" :
+      "BAIXO";
 
 const elRisco = document.getElementById("kpiRisco");
 if (elRisco) elRisco.textContent = risco;
