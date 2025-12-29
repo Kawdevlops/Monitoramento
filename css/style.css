@@ -1,4 +1,5 @@
-/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
 :root{
   --bg: #0b1220;
   --panel: rgba(255,255,255,.06);
@@ -10,10 +11,12 @@
 body{
   background: linear-gradient(180deg, #070b14 0%, #0b1220 40%, #0b1220 100%);
   color: var(--text);
+  font-family: "Newsreader", serif;
 }
 
+/* TOPBAR */
 .topbar{
-  background: radial-gradient(1200px 400px at 10% 0%, #ba2339, transparent 50%),
+  background: radial-gradient(1200px 400px at 10% 0%, #BA2339, transparent 50%),
               radial-gradient(1200px 400px at 90% 0%, rgba(54, 162, 235,.18), transparent 55%),
               #070b14;
 }
@@ -22,36 +25,45 @@ body{
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #BA2339;
-  box-shadow: 0 0 20px #BA2339;
+  background: #830024;
+  box-shadow: 0 0 20px #830024;
 }
 
-.brand-title{
-  font-weight: 700;
-  letter-spacing: .2px;
+.brand-title h1{
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2.2vw, 2rem);
+  line-height: 1.15;
+}
+
+.brand-title-sub{
+  font-size: clamp(.9rem, 1.4vw, 140px);
+  color: rgba(255,255,255,.85);
 }
 
 .brand-subtitle{
-  font-size: .85rem;
+  font-size: clamp(.8rem, 1.2vw, .95rem);
   color: var(--muted);
 }
 
- .logo{
-  height: 150px;
- }
+.logo{
+  height: clamp(56px, 10vw, 180px);
+  width: auto;
+}
 
+/* HERO */
 .hero{
   background: radial-gradient(900px 400px at 15% 10%, rgba(255,255,255,.06), transparent 60%),
               radial-gradient(900px 400px at 85% 20%, rgba(255,255,255,.04), transparent 60%);
 }
 
+/* PANELS */
 .panel{
   background: var(--panel);
   border: 1px solid var(--panel-border);
   border-radius: 16px;
   padding: 16px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px #BA2339;
+  box-shadow: 0 0 20px #830024;
 }
 
 .panel-head{
@@ -63,37 +75,48 @@ body{
 }
 
 .panel-title{
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 800;
   letter-spacing: .2px;
 }
 
 .panel-sub{
-  font-size: .9rem;
+  font-size: 1rem;
+  color: var(--muted);
 }
 
+/* CHARTS */
 .chart-img-wrap{
-  height: 320px;
-  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.08);
-  background: rgba(0,0,0,.18);
-  display: grid;
-  place-items: center;
 }
 
-.chart-img-wrap.gauge {
-  height: 380px; /* gauge costuma precisar mais */
-}
-
-.chart-img-wrap-lg{
-  height: 720px;
-}
-
-.chart-img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.chart-iframe{
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
   display: block;
+}
+
+/* Alturas base (mobile primeiro) */
+.chart-img-wrap{ height: 240px; }
+.chart-img-wrap.gauge{ height: 260px; }
+.chart-img-wrap-lg{ height: 420px; }
+
+/* md */
+@media (min-width: 768px){
+  .chart-img-wrap{ height: 320px; }
+  .chart-img-wrap.gauge{ height: 380px; }
+  .chart-img-wrap-lg{ height: 600px; }
+}
+
+/* lg */
+@media (min-width: 992px){
+  .chart-img-wrap{ height: 340px; }
+  .chart-img-wrap.gauge{ height: 400px; }
+  .chart-img-wrap-lg{ height: 720px; }
 }
 
 .chart-iframe{
@@ -101,9 +124,10 @@ body{
   height: 100%;
   border: 0;
   display: block;
-  background: #fff; /* corrigido */
+  background: #fff;
 }
 
+/* BADGE PILL */
 .badge-pill{
   background: rgba(255,255,255,.07);
   border: 1px solid rgba(255,255,255,.10);
@@ -113,6 +137,7 @@ body{
   color: var(--muted);
 }
 
+/* KPI */
 .mini-kpi{
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.10);
@@ -138,6 +163,7 @@ body{
   margin-top: 4px;
 }
 
+/* INFO CARDS */
 .info-card{
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.10);
@@ -160,6 +186,7 @@ body{
 
 .info-sub{
   font-size: .85rem;
+  color: var(--muted);
 }
 
 .info-body{
@@ -167,6 +194,7 @@ body{
   color: rgba(255,255,255,.85);
 }
 
+/* PILLS */
 .pill{
   display: inline-flex;
   align-items: center;
@@ -184,19 +212,35 @@ body{
 .pill-danger{ background: rgba(220,53,69,.18); border-color: rgba(220,53,69,.35); }
 .pill-neutral{ background: rgba(13,110,253,.16); border-color: rgba(13,110,253,.30); }
 
-a.btn-outline-light{
+/* BUTTON */
+.btn-outline-light{
   border-color: rgba(255,255,255,.25);
   color: rgba(255,255,255,.9);
 }
-a.btn-outline-light:hover{
+
+.btn-outline-light:hover{
   border-color: rgba(255,255,255,.35);
 }
 
+/* HR */
 hr{
   border-color: rgba(255,255,255,.12);
 }
 
-/* Impressão (fica “relatório”) */
+/* TYPO: não inflar tudo */
+p{
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Mobile refinements */
+@media (max-width: 576px){
+  .panel{ padding: 12px; }
+  .mini-kpi-value{ font-size: 1.35rem; }
+  .topbar .container{ gap: 12px; }
+}
+
+/* Impressão */
 @media print{
   body{ background: #fff !important; color: #111 !important; }
   .topbar, .hero{ background: #fff !important; }
