@@ -102,7 +102,15 @@ body {
 
 /* Alturas base (mobile primeiro) */
 .chart-img-wrap {
-  height: 240px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.chart-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .chart-img-wrap.gauge {
@@ -116,7 +124,7 @@ body {
 /* md */
 @media (min-width: 768px) {
   .chart-img-wrap {
-    height: 320px;
+    height: 70vw;
   }
 
   .chart-img-wrap.gauge {
@@ -124,10 +132,11 @@ body {
   }
 
   .chart-img-wrap-lg {
-    height: 600px;
+    height: 70vw;
   }
 }
 
+} 
 /* lg */
 @media (min-width: 992px) {
   .chart-img-wrap {
@@ -143,13 +152,13 @@ body {
   }
 }
 
-.chart-iframe {
+/* .chart-iframe {
   width: 100%;
   height: 100%;
   border: 0;
   display: block;
   background: #fff;
-}
+} */
 
 /* BADGE PILL */
 .badge-pill {
