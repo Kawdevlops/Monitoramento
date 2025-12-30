@@ -14,10 +14,10 @@ document.getElementById("ano").textContent = agora.getFullYear();
 const baseInicial = 17669;
 
 // Estoque pendente atual (HOJE)
-const pendentesHoje = 15754;
+const pendentesHoje = 15409;
 
 // Estoque pendente do dia anterior (ONTEM) — ATUALIZE TODO DIA
-const pendentesOntem = 16639;
+const pendentesOntem = 15409;
 
 
 // ===== CÁLCULOS =====
