@@ -136,7 +136,6 @@ body {
   }
 }
 
-} 
 /* lg */
 @media (min-width: 992px) {
   .chart-img-wrap {
@@ -151,14 +150,6 @@ body {
     height: 720px;
   }
 }
-
-/* .chart-iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-  background: #fff;
-} */
 
 /* BADGE PILL */
 .badge-pill {
