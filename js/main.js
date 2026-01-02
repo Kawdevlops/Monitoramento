@@ -45,10 +45,10 @@ if ($("ano")) {
 const baseInicial = 17669;
 
 // Estoque atual (HOJE)
-const estoqueHoje = 15409;
+const estoqueHoje = 15052;
 
 // Estoque do dia anterior (ONTEM)
-const estoqueOntem = 15959;
+const estoqueOntem = 15409;
 
 // ========= CÁLCULOS =========
 const faltaParaZerar = Math.max(0, estoqueHoje);

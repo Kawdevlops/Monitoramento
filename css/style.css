@@ -16,7 +16,8 @@ body {
 
 /* TOPBAR */
 .topbar {
-  background: radial-gradient(1200px 400px at 10% 0%, #BA2339, transparent 50%),
+  background:
+    radial-gradient(1200px 400px at 10% 0%, #BA2339, transparent 50%),
     radial-gradient(1200px 400px at 90% 0%, rgba(54, 162, 235, .18), transparent 55%),
     #070b14;
 }
@@ -32,11 +33,12 @@ body {
 .brand-title h1 {
   font-weight: 800;
   font-size: clamp(1.1rem, 2.2vw, 2rem);
-  line-height: 1.15;
+  line-height: 1.5;
 }
 
+/* estava quebrado: 140px no clamp */
 .brand-title-sub {
-  font-size: clamp(.9rem, 1.4vw, 140px);
+  font-size: clamp(2rem, 2vw, 2rem);
   color: rgba(255, 255, 255, .85);
 }
 
@@ -46,13 +48,14 @@ body {
 }
 
 .logo {
-  height: clamp(56px, 10vw, 180px);
+  height: clamp(56px, 10vw, 140px);
   width: auto;
 }
 
 /* HERO */
 .hero {
-  background: radial-gradient(900px 400px at 15% 10%, rgba(255, 255, 255, .06), transparent 60%),
+  background:
+    radial-gradient(900px 400px at 15% 10%, rgba(255, 255, 255, .06), transparent 60%),
     radial-gradient(900px 400px at 85% 20%, rgba(255, 255, 255, .04), transparent 60%);
 }
 
@@ -61,94 +64,79 @@ body {
   background: var(--panel);
   border: 1px solid var(--panel-border);
   border-radius: 16px;
-  padding: 16px;
+  padding: 12px;
   backdrop-filter: blur(10px);
   box-shadow: 0 0 20px #830024;
+
+  display: flex;
+  flex-direction: column;
+
+  /* chave pra não dar scroll e nem “faixa” no iframe */
+  overflow: hidden;
 }
 
 .panel-head {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 10px;
+  flex: 0 0 auto;
 }
 
 .panel-title {
-  font-size: 1.2rem;
+  font-size: clamp(1.1rem, 2vw, 2rem);
   font-weight: 800;
   letter-spacing: .2px;
 }
 
 .panel-sub {
-  font-size: 1rem;
+  font-size: clamp(.9rem, 1.3vw, 1.1rem);
   color: var(--muted);
+}
+
+/* PRIMEIRO CARD (gauge) */
+#primeiroCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* CHARTS */
 .chart-img-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.chart-iframe {
-  max-width: 100%;
-  max-height: 100%;
-  margin: auto;
-  display: block;
-}
-
-/* Alturas base (mobile primeiro) */
-.chart-img-wrap {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; /* sem barra lateral */
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  border-radius: 12px;
+  height: clamp(360px, 60vh, 780px);
 }
 
+/* iframe ocupa exatamente o wrapper */
 .chart-iframe {
+  overflow: hidden;
   width: 100%;
   height: 100%;
   border: 0;
+
 }
 
-.chart-img-wrap.gauge {
-  height: 260px;
+/* Alturas padrão (mobile-first) */
+.chart-img-wrap {
+  height: clamp(380px, 60vh, 560px); /* normal */
 }
 
+/* Gauge menor (não precisa virar um paredão) */
+.chart-img-wrap.gauge,
+#primeiroCard .chart-img-wrap {
+  height: clamp(260px, 42vh, 420px);
+}
+
+/* Gráfico grande (subprefeituras / pulmão / etc) */
 .chart-img-wrap-lg {
-  height: 420px;
-}
-
-/* md */
-@media (min-width: 768px) {
-  .chart-img-wrap {
-    height: 70vw;
-  }
-
-  .chart-img-wrap.gauge {
-    height: 380px;
-  }
-
-  .chart-img-wrap-lg {
-    height: 70vw;
-  }
-}
-
-/* lg */
-@media (min-width: 992px) {
-  .chart-img-wrap {
-    height: 340px;
-  }
-
-  .chart-img-wrap.gauge {
-    height: 400px;
-  }
-
-  .chart-img-wrap-lg {
-    height: 720px;
-  }
+  height: clamp(520px, 82vh, 900px);
 }
 
 /* BADGE PILL */
@@ -170,21 +158,33 @@ body {
 }
 
 .mini-kpi-label {
-  font-size: .85rem;
+  font-size: 1.5rem;
   color: var(--muted);
 }
 
 .mini-kpi-value {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 800;
   line-height: 1.2;
   margin-top: 4px;
 }
 
 .mini-kpi-foot {
-  font-size: .85rem;
+  font-size: 1.3rem;
   color: var(--muted);
   margin-top: 4px;
+}
+
+#cardAlerta {
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+#cardDestaque {
+  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+  line-height: 1.6;
+  font-weight: 600;
 }
 
 /* INFO CARDS */
@@ -198,25 +198,24 @@ body {
 .info-card-head {
   padding: 12px 14px;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
   border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
-.info-title {
-  font-weight: 800;
-}
+.info-title { font-weight: 800;
+  font-size: 1.5rem;}
 
 .info-sub {
-  font-size: .85rem;
+  font-size: 1.2rem;
   color: var(--muted);
 }
 
 .info-body {
   padding: 12px 14px;
   color: rgba(255, 255, 255, .85);
-}
+  }
 
 /* PILLS */
 .pill {
@@ -229,6 +228,7 @@ body {
   border: 1px solid rgba(255, 255, 255, .12);
   background: rgba(255, 255, 255, .06);
   color: var(--text);
+  
 }
 
 .pill-ok {
@@ -262,11 +262,9 @@ body {
 }
 
 /* HR */
-hr {
-  border-color: rgba(255, 255, 255, .12);
-}
+hr { border-color: rgba(255, 255, 255, .12); }
 
-/* TYPO: não inflar tudo */
+/* TYPO */
 p {
   margin: 0;
   font-size: 1rem;
@@ -274,17 +272,26 @@ p {
 
 /* Mobile refinements */
 @media (max-width: 576px) {
-  .panel {
-    padding: 12px;
-  }
+  .panel { padding: 12px; }
 
-  .mini-kpi-value {
-    font-size: 1.35rem;
-  }
+  .mini-kpi-value { font-size: 1.35rem; }
 
-  .topbar .container {
-    gap: 12px;
-  }
+  .topbar .container { gap: 12px; }
+
+  /* no mobile, dá mais respiro pros gráficos grandes */
+  .chart-img-wrap { height: 65vh; }
+  .chart-img-wrap.gauge,
+  #primeiroCard .chart-img-wrap { height: 45vh; }
+  .chart-img-wrap-lg { height: 85vh; }
+}
+
+/* Desktop refinements */
+@media (min-width: 992px) {
+  /* desktop: não deixa “tela infinita”, mantém bonito */
+  .chart-img-wrap { height: 520px; }
+  .chart-img-wrap.gauge,
+  #primeiroCard .chart-img-wrap { height: 380px; }
+  .chart-img-wrap-lg { height: 720px; }
 }
 
 /* Impressão */
